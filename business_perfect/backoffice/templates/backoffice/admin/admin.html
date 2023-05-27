@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/508b7484b8.js" crossorigin="anonymous"></script>
+    <title>Admin Dashboard</title>
+  </head>
+  <body>
+    {% include "backoffice/admin/navbar_admin.html" %}
+    
+    {% block admincontent %}
+    
+    {% endblock admincontent %}
+  </body>
+</html>

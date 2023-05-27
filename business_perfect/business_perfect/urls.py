@@ -19,7 +19,7 @@ from django.urls import path
 from backoffice import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', views.admin, name='admin'),
     path('', views.home, name='home'),
     path('blog/', views.blog, name='blog'),
     path('portfolio/', views.portfolio, name='portfolio'),

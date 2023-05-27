@@ -103,35 +103,23 @@
                 <div class="row">
 
                     <div class="col-md-9">
-
+                        {% for article in articles %}
+                        
                         <div class="blog-post">
 
-                            <a href="blog-post.html"><img class="img-carousel post-img" src={% static 'backoffice/assets/img/portfolio-1.jpg' %} alt=""></a>
+                            <a href="blog-post.html"><img class="img-carousel post-img" src="{% static 'backoffice/assets/img/' %}{{ article.image }}" alt={{ article.title }}></a>
 
                             <div class="post-content">
 
-                                <h3><a class="post-title" href="blog-post.html">Is Passion Good For Business?</a></h3>
+                                <h3><a class="post-title" href="blog-post.html">{{article.title}}</a></h3>
 
                                         
-                                <p class="section-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <p class="section-text">{{article.description}}</p>
                                 
                             </div><!-- /.post-content -->
 
                         </div><!-- /.blog-post -->
-                        <div class="blog-post">
-
-                            <a href="blog-post.html"><img class="img-carousel post-img" src={% static 'backoffice/assets/img/portfolio-1.jpg' %} alt=""></a>
-
-                            <div class="post-content">
-
-                                <h3><a class="post-title" href="blog-post.html">Is Passion Good For Business?</a></h3>
-
-                                        
-                                <p class="section-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                
-                            </div><!-- /.post-content -->
-
-                        </div><!-- /.blog-post -->
+                        {% endfor %}
 
 
                     </div>
@@ -158,8 +146,6 @@
         </section><!-- /.social-networks -->
 
     </main><!-- /.site-main -->
-{% endblock content %}
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -171,6 +157,4 @@
     <script src={% static 'backoffice/assets/js/skrollr.min.js' %}></script>
     <script src={% static 'backoffice/assets/js/jquery.countTo.min.js' %}></script>
     <script src={% static 'backoffice/assets/js/script.js' %}></script>
-
-</body>
-</html>
+{% endblock content %}
