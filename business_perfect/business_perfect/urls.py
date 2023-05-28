@@ -19,9 +19,11 @@ from django.urls import path
 from backoffice import views
 
 urlpatterns = [
-    path('admin/', views.admin, name='admin'),
     path('', views.home, name='home'),
     path('blog/', views.blog, name='blog'),
     path('portfolio/', views.portfolio, name='portfolio'),
     path('contact/', views.contact, name='contact'),
+    # Admin interface
+    path('admin/', views.admin, name='admin'),
+    path('admin/<str:nom_url>/', views.admin_url, name='admin_url'),
 ]

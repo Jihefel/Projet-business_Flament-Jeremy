@@ -1,0 +1,57 @@
+{% extends "base_admin.html" %} {% block admincontent %}
+<div class="mt-5">
+  {% if nom_url == 'add_article' %}
+  <h1>Ajouter un article</h1>
+
+  <form method="POST" class="mt-5 mb-3">
+    {% csrf_token %}
+    <div class="mb-3 row">
+      <label for="exampleFormControlInput1" class="col-sm-2 form-label">Titre</label>
+      <div class="col-sm-7">
+        <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="Titre de l'article" />
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="exampleFormControlTextarea1" class="col-sm-2 form-label">Description</label>
+      <div class="col-sm-7">
+        <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="4" placeholder="Description de l'article"></textarea>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="exampleFormControlInput1" class="col-sm-2 form-label">Nom de l'image</label>
+      <div class="col-sm-7">
+        <input type="text" class="form-control" id="exampleFormControlInput1" name="image" placeholder="Nom de l'image dans le dossier static/assets/images" />
+      </div>
+    </div>
+    <input class="btn btn-dark" type="submit" value="Ajouter l'article" />
+  </form>
+
+  {% else %}
+
+  <h1>Ajouter un projet</h1>
+
+  <form method="POST" class="mt-5 mb-3">
+    {% csrf_token %}
+    <div class="mb-3 row">
+      <label for="exampleFormControlInput2" class="col-sm-2 form-label">Titre</label>
+      <div class="col-sm-7">
+        <input type="text" class="form-control" id="exampleFormControlInput2" name="title" placeholder="Titre du projet" />
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="exampleFormControlTextarea2" class="col-sm-2 form-label">Description</label>
+      <div class="col-sm-7">
+        <textarea class="form-control" id="exampleFormControlTextarea2" name="description" rows="4" placeholder="Description du projet"></textarea>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="exampleFormControlInput2" class="col-sm-2 form-label">Nom de l'image</label>
+      <div class="col-sm-7">
+        <input type="text" class="form-control" id="exampleFormControlInput2" name="image" placeholder="Nom de l'image dans le dossier static/assets/images" />
+      </div>
+    </div>
+    <input class="btn btn-dark" type="submit" value="Ajouter le projet" />
+  </form>
+</div>
+
+{% endif %} {% endblock admincontent %}
