@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Blog | BusinessPerfect</title>
+    <title>Blog | {{post.title}}</title>
 
     <meta name="description" content="BusinessPerfect - Freebie HTML/CSS template based on Bootstrap">
     <meta name="author" content="Milan Savov">
@@ -45,10 +45,9 @@
 
 {% endblock head %}
 
-
 {% block content %}
 
-<header id="masthead" class="site-header site-header-fill">
+    <header id="masthead" class="site-header site-header-fill position-relative">
 
         <nav id="primary-navigation" class="site-navigation">
 
@@ -62,7 +61,7 @@
 
                 <div class="main-menu" id="perfect-navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li >
+                        <li>
                             <a href={% url 'home' %}>Home</a></li>
                         <li class="active">
                             <a href={% url 'blog' %}>Blog </a>
@@ -81,76 +80,22 @@
         </nav><!-- /.site-navigation -->
 
     </header><!-- /#masthead -->
-
-<main id="main" class="site-main">
-
-        <section class="site-section-small section-blog">
-
-            <div class="container">
-
-                <div class="text-center">
-
-                    <h1 class="section-title-big">Blog</h1>
-                    <p class="section-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                
-                </div>
-
-                <ol class="breadcrumb">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active">Blog</li>
-                </ol><!-- /.breadcrumb -->
-
-                <div class="row">
-
-                    <div class="col-md-9">
-                        {% for article in articles %}
-                        
-                        <div class="blog-post">
-
-                            <a href={% url 'blog_post' article.id %}>
-                                <img class="img-carousel post-img" src="{% static 'backoffice/assets/img/' %}{{ article.image }}" alt={{ article.title }}>
-                            </a>
-
-                            <div class="post-content">
-
-                                <h3><a class="post-title" href={% url 'blog_post' article.id %}>{{article.title}}</a></h3>
-
-                                        
-                                <p class="section-text">{{article.description}}</p>
-                                
-                            </div><!-- /.post-content -->
-
-                        </div><!-- /.blog-post -->
-                        {% endfor %}
-
-
-                    </div>
-                </div>
+    
+    <main id="main" class="site-main">
+        <div class="container" style="padding-top: 10rem">
+            <div class="card">
+            <img src="{% static 'backoffice/assets/img/' %}{{ post.image }}" class="card-img-top" alt="{{ post.title }}" style="width: 100%">
+            <div class="card-body">
+                <h1 style="margin-top: 1rem">{{ post.title }}</h1>
+                <p class="card-text">{{ post.description }}</p>
+                {% comment %} <a href={% url 'blog' %}><button class="btn btn-secondary">Retourner aux posts</button></a> {% endcomment %}
             </div>
-            
-        </section><!-- /.section-blog -->
-
-        <section class="social-networks">
-
-            <div class="container-fluid">
-
-                <div class="row">
-
-                    <a class="white-text black-bg twitter-bg" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a class="white-text gray-bg facebook-bg" href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                    <a class="white-text black-bg google-plus-bg" href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                    <a class="white-text gray-bg message-bg" href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>
- 
-                </div>
-                
             </div>
-            
-        </section><!-- /.social-networks -->
+        </div>
+    </main>
 
-    </main><!-- /.site-main -->
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+
+<!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
     <script src={% static 'backoffice/assets/js/bootstrap.min.js' %}></script>
     <script src={% static 'backoffice/assets/js/jquery.slicknav.min.js' %}></script>

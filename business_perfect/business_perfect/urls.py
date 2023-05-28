@@ -21,7 +21,9 @@ from backoffice import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('blog/', views.blog, name='blog'),
+    path('blog/<int:post_id>/', views.blog_post, name='blog_post'),
     path('portfolio/', views.portfolio, name='portfolio'),
+    path('portfolio/<int:post_id>/', views.project_post, name='project_post'),
     path('contact/', views.contact, name='contact'),
     # Admin interface
     path('admin/', views.admin, name='admin'),

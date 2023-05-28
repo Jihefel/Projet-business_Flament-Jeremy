@@ -1,5 +1,4 @@
-from django.shortcuts import render, redirect
-from django.contrib import messages
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Article, Project
 from .forms import ArticleForm, ProjectForm
 
@@ -11,9 +10,17 @@ def blog(request):
     latest_articles = Article.objects.all().order_by('-id')[:4]
     return render(request, 'backoffice/public/blog.html', {'articles': latest_articles})
 
+def blog_post(request, post_id):
+    article = get_object_or_404(Article, id=post_id)
+    return render(request, 'backoffice/public/post.html', {'post': article})
+
 def portfolio(request):
     latest_projects = Project.objects.all().order_by('-id')[:15]
     return render(request, 'backoffice/public/portfolio.html', {'projects': latest_projects})
+
+def project_post(request, post_id):
+    projet = get_object_or_404(Project, id=post_id)
+    return render(request, 'backoffice/public/post.html', {'post': projet})
 
 def contact(request):
     return render(request, 'backoffice/public/contact.html')
