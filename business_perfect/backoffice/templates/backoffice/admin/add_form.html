@@ -26,6 +26,27 @@
     <input class="btn btn-dark" type="submit" value="Ajouter l'article" />
   </form>
 
+  <table class="table mt-5">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Titre</th>
+      <th scope="col">Description</th>
+      <th scope="col">Image utilisée</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for article in articles %}
+    <tr>
+      <th scope="row">{{article.id}}</th>
+      <td>{{article.title}}</td>
+      <td>{{article.description}}</td>
+      <td>{{article.image}}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
   {% else %}
 
   <h1>Ajouter un projet</h1>
@@ -54,4 +75,27 @@
   </form>
 </div>
 
-{% endif %} {% endblock admincontent %}
+<table class="table mt-5">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Titre</th>
+      <th scope="col">Description</th>
+      <th scope="col">Image utilisée</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for project in projects %}
+    <tr>
+      <th scope="row">{{project.id}}</th>
+      <td>{{project.title}}</td>
+      <td>{{project.description}}</td>
+      <td>{{project.image}}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endif %} 
+
+{% endblock admincontent %}

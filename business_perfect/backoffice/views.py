@@ -30,6 +30,8 @@ def admin(request):
 
 def admin_url(request, nom_url):
     form = None
+    articles = Article.objects.all()
+    projects = Project.objects.all()
     if nom_url == 'add_article':
         if request.method == 'POST':
             form = ArticleForm(request.POST)
@@ -47,5 +49,5 @@ def admin_url(request, nom_url):
         else:
             form = ProjectForm()
 
-    return render(request, 'backoffice/admin/add_form.html', {'nom_url': nom_url, 'form': form})
+    return render(request, 'backoffice/admin/add_form.html', {'nom_url': nom_url, 'form': form, 'articles': articles, 'projects': projects})
 
